@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Form -->
+        <record id="view_journal_security_users_form" model="ir.ui.view">
+            <field name="name">journal_security.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='access_rights']/group[1]" position="after">
+                    <group string="Sucursales Permitidas" groups="multi_store.group_multi_store">
+                        <field name="store_ids" nolabel="1" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="store_id" options="{'no_create': False}" groups="multi_store.group_multi_store" string="Sucursal"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
