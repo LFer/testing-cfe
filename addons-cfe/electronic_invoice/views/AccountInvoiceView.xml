@@ -32,23 +32,6 @@
                     </group>
                 </xpath>
 
-                <xpath expr="//h1//field[@name='number']" position="after">
-                    <div class="oe_right oe_button_box" style="width: 350px; margin-top: -17px; margin-right: -14px; border-style: none;" name="buttons">
-
-
-
-                        <button class="oe_inline oe_stat_button"
-                                type="object"
-                                name="get_cfe_status"
-                                attrs="{'invisible': [('fe_activa', '=', True)]}"
-                                icon="fa-exclamation-triangle"
-                                string="CFE Desactivada">
-                        </button>
-                    </div>
-
-
-                    <field name="fe_activa" invisible="1" nolabel="1"/>
-                </xpath>
 
                 <xpath expr="//h1//field[@name='number']" position="after">
                     <div class="topcorner" name="qr_code">
