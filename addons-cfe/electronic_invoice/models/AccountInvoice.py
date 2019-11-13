@@ -511,17 +511,10 @@ class AccountInvoice(models.Model):
         return (es_la_base and (es_el_hardware or es_la_ip) and existe_etc_produccion)
         # return existe_etc_produccion
 
-    def hacer_servicio_readonly(self, servicio=None):
-        if servicio:
-            servicio.solo_lectura = True
-            servicio.rt_carga_id.solo_lectura = True
-            return True
+
 
     @api.one
     def action_invoice_open(self):
-        for line in self.invoice_line_ids:
-            if line.rt_service_product_id:
-                self.hacer_servicio_readonly(servicio=line.rt_service_product_id)
         if self.type == 'out_refund':
             if self.refund_invoice_id:
                 if self.amount_total > self.refund_invoice_id.amount_total:
