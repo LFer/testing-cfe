@@ -30,7 +30,7 @@
         'views/AccountInvoiceView.xml',
         'views/ResConfigSettingsViews.xml',
         'views/ElectronicInvoiceMenu.xml',
-        'views/ResStoreView.xml',
+        # 'views/ResStoreView.xml',
         'data/DgiCodes.xml',
         'data/ResCurrency.xml',
 

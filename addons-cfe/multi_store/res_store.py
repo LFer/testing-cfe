@@ -20,6 +20,17 @@ class ResStore(models.Model):
     user_ids = fields.Many2many(
         'res.users', 'res_store_users_rel', 'cid', 'user_id', 'Accepted Users')
 
+
+    ######CFE###########
+    nro_suc_dgi = fields.Char('Nro. Sucursal DGI', required=True)
+    social_reason = fields.Char(string='Nombre Fantasía', store=True, related='company_id.partner_id.social_reason')
+    phone = fields.Char(string='Teléfono')
+    rut = fields.Char(string='RUT', store=True, related='company_id.vat')
+    country_id = fields.Many2one(comodel_name='res.country', string='Pais')
+    state_id = fields.Many2one(comodel_name='res.country.state', string='Departamento')
+    city = fields.Char(string='Ciudad')
+    street = fields.Char(string='Calle')
+
     _sql_constraints = [('name_uniq', 'unique (name)', 'The company name must be unique !')]
 
     _constraints = [(models.BaseModel._check_recursion, 'Error! You can not create recursive stores.', ['parent_id'])]
