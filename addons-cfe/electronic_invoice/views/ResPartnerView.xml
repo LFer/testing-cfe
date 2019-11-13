@@ -10,6 +10,9 @@
                 <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='type']" position="before">
                     <field name="social_reason" placeholder="Nombre Fantasia" string="Nombre Fantasia"/>
                 </xpath>
+              <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/div[1]" position="after">
+                <field name="vat_type"/>
+              </xpath>
             </field>
         </record>
 
