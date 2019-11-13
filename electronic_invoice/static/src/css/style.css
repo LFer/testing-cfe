@@ -1,0 +1,9 @@
+.topcorner {
+    position:absolute;
+    top:95px;
+    right:35px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    /*border: 1px solid blue;*/
+}

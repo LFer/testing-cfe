@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    
+        <record id="action_cfe_configuration" model="ir.actions.act_window">
+            <field name="name">Configuracion Factura Electronica</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'electronic_invoice'}</field>
+        </record>
+
+
+        <menuitem id="menu_cfe_settings" name="Facturacion Electronica"
+            parent="account.menu_finance_configuration" sequence="0" action="action_cfe_configuration" groups="base.group_system"/>
+    
+  </data>
+</odoo>

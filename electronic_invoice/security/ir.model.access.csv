@@ -1,0 +1,4 @@
+name,group_id/id,model_id/id,perm_create,perm_write,perm_unlink,perm_read
+VerCodigosImpuestoDgi,account.group_account_manager,electronic_invoice.model_account_tax_dgi_codes,True,True,True,True
+VerTiposPagoDgi,account.group_account_manager,electronic_invoice.model_account_payment_term_dgi_codes,True,True,True,True
+VerCodigosDgi,account.group_account_manager,electronic_invoice.model_dgi_codes,True,True,True,True

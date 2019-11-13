@@ -1,0 +1,4 @@
+xmltodict
+qrcode
+ipdb
+suds

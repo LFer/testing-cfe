@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="UYI" model="res.currency">
+                <field name="name">UYI</field>
+                <field name="symbol">UI</field>
+                <field name="rounding">0.01</field>
+                <field name="accuracy">4</field>
+                <field name="position">after</field>
+        </record>
+        <record forcecreate="0" id="rateUYI" model="res.currency.rate">
+                <field name="currency_id" ref="UYI" />
+                <field name="name">2016-01-01</field>
+                <field name="rate">3.2431</field>
+        </record>
+        <record id="UYR" model="res.currency">
+                <field name="name">UYR</field>
+                <field name="symbol">UR</field>
+                <field name="rounding">0.01</field>
+                <field name="accuracy">4</field>
+                <field name="position">after</field>
+        </record>
+        <record forcecreate="0" id="rateUYR" model="res.currency.rate">
+                <field name="currency_id" ref="UYR" />
+                <field name="name">2016-01-01</field>
+                <field name="rate">847.32</field>
+        </record>
+    </data>
+</openerp>

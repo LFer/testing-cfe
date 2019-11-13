@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="exento" model="dgi.codes">
+                <field name="code">1</field>
+                <field name="name">Exento de IVA</field>
+                <field name="amount">1</field>
+                <field name="value">0</field>
+        </record>
+
+        <record id="tasa_minima" model="dgi.codes">
+                <field name="code">2</field>
+                <field name="name">Tasa Mínima</field>
+                <field name="amount">0.10</field>
+                <field name="value">10</field>
+        </record>
+
+        <record id="tasa_basica" model="dgi.codes">
+                <field name="code">3</field>
+                <field name="name">Tasa Básica</field>
+                <field name="amount">0.22</field>
+                <field name="value">22</field>
+        </record>
+
+    </data>
+</openerp>
