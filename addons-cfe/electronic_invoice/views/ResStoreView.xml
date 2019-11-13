@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<record id="view_res_store_form_inherit" model="ir.ui.view">
+			<field name="name">Sucursal</field>
+			<field name="model">res.store</field>
+			<field name="inherit_id" ref="multi_store.view_res_store_form"/>
+			<field name="arch" type="xml">
+				<field name="name" position="before">
+                    <field name="nro_suc_dgi" style="width:40%%;"/>
+                    <field name="social_reason" readonly="1"/>
+                    <field name="rut" readonly="1"/>
+                    <field name="country_id"  style="width:40%%;" readonly="0" options="{'no_quick_create':True,'no_create_edit': True}"/>
+                    <field name="state_id" style="width:40%%;" options="{'no_quick_create':True,'no_create_edit': True}"/>
+                    <field name="city" style="width:40%%;" options="{'no_quick_create':True,'no_create_edit': True}"/>
+                    <field name="street" style="width:40%%;" options="{'no_quick_create':True,'no_create_edit': True}"/>
+                    <field name="phone" style="width:40%%;" options="{'no_quick_create':True,'no_create_edit': True}"/>
+                </field>
+			</field>
+		</record>
+
+    </data>
+</openerp>
