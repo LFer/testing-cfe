@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_cfe_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.electronic.invoice</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="CFE" string="CFE" data-key="electronic_invoice">
+                        <h2>Conexion con DGI</h2>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="text-muted">
+                                Introduzca la URL del WS de produccion
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <label for="key_produccion" class="col-lg-3 o_light_label"/>
+                                    <field name="key_produccion" class="col-lg-3 o_light_label" widget="url"/>
+                                </div>
+                            </div>
+                            <div class="text-muted">
+                                Introduzca la URL del WS de produccion
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <label for="key_testing" class="col-lg-3 o_light_label"/>
+                                    <field name="key_testing" class="col-lg-3 o_light_label" widget="url"/>
+                                </div>
+                            </div>
+                                <div class="content-group">
+                                    <label for="fe_activa" string="Activar/Desactivar Facturacion Electronica" class="col-lg-3 o_light_label"/>
+                                    <field name="fe_activa" widget="boolean_toggle"/>
+                                </div>
+                        </div>
+
+                        <h2>Relación de Impuestos/Códigos DGI</h2>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <br/>
+                            <span >Debe establecer la relacion entre los Impuestos de Odoo y los Codigos de DGI</span>
+                            <button name="%(electronic_invoice.action_account_tax_dgi_codes)d" icon="fa-arrow-right" type="action" string="Configurar relacion impuestos/codigos DGI" class="btn-link"/>
+                        </div>
+
+                        <h2>Relación de Formas de pago Odoo/DGI</h2>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <br/>
+                            <span >Debe establecer la Relación de Formas de pago Odoo/DGI</span>
+                            <button name="%(electronic_invoice.action_account_payment_term_dgi_codes)d" icon="fa-arrow-right" type="action" string="Configurar Relación de Formas de pago Odoo/DGI" class="btn-link"/>
+                        </div>
+                    </div>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
