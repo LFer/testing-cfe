@@ -20,3 +20,4 @@ class ResPartner(models.Model):
     street = fields.Char(required=True)
     city = fields.Char(required=True)
     state_id = fields.Many2one(comodel_name='res.country.state', required=True)
+    social_reason = fields.Char(u'Razón Social', size=254)

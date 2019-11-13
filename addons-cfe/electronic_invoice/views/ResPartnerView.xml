@@ -2,16 +2,27 @@
 <openerp>
     <data>
 
-<!--        <record id="view_partner_form_doc" model="ir.ui.view">-->
-<!--            <field name="name">res.partner.doc.inherit</field>-->
-<!--            <field name="model">res.partner</field>-->
-<!--            <field name="inherit_id" ref="base.view_partner_form"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <field name="vat" position="before">-->
-<!--                    <field name="vat_type" class="oe_inline"/>-->
-<!--                </field>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="view_partner_form_doc" model="ir.ui.view">
+            <field name="name">res.partner.doc.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='type']" position="before">
+                    <field name="social_reason" placeholder="Nombre Fantasia" string="Nombre Fantasia"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_res_partner_filter_assign" model="ir.ui.view">
+            <field name="name">res.partner.service.inherit.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name" filter_domain="['|','|','|','|',('name','ilike',self),('ref','=',self),('email','ilike',self),('social_reason','ilike',self),('vat','ilike',self)]"/>
+                </field>
+            </field>
+        </record>
 
     </data>
 </openerp>
