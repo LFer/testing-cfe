@@ -4,7 +4,8 @@ from odoo import models, fields, api
 
 class ResStore(models.Model):
     _inherit = 'res.store'
-
+    company_id = fields.Many2one('res.company', 'Company', required=True,
+                                 default=lambda self: self.env['res.company']._company_default_get('res.store'))
     nro_suc_dgi = fields.Char('Nro. Sucursal DGI', required=True)
     social_reason = fields.Char(string='Nombre Fantasía', store=True, related='company_id.partner_id.social_reason')
     phone = fields.Char(string='Teléfono')
