@@ -1,2 +1,2 @@
-qrcodqrcodee
+qrcode
 ipdb
