@@ -19,7 +19,7 @@
                         </t>
                     </t>
                     <t t-if="line.invoice_id">
-                        <t t-esc="line.invoice_id.x_Serie"/>-<t t-esc="line.invoice_id.x_DocNro"/>
+                        <t t-esc="line.invoice_id.fe_Serie"/>-<t t-esc="line.invoice_id.fe_DocNro"/>
                     </t>
                     <t t-else="">
                         <t t-esc="line.label || line.name"/>
@@ -55,7 +55,7 @@
                 <tr t-if="line.account_code"><td>Account</td><td><t t-esc="line.account_code"/> <t t-esc="line.account_name"/></td></tr>
                 <tr><td>Journal</td><td><t t-esc="line.journal_id[1]"/></td></tr>
                 <t t-if="line.invoice_id">
-                    <tr><td>Label</td><td><t t-esc="line.invoice_id.x_Serie"/>-<t t-esc="line.invoice_id.x_DocNro"/></td></tr>
+                    <tr><td>Label</td><td><t t-esc="line.invoice_id.fe_Serie"/>-<t t-esc="line.invoice_id.fe_DocNro"/></td></tr>
                 </t>
                 <t t-else="">
                     <tr><td>Label</td><td><t t-esc="line.label"/></td></tr>
