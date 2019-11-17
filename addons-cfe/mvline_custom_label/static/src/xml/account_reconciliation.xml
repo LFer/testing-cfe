@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="reconciliation.line.mv_line">
+        <t t-jquery="tr" t-operation="replace">
+            <tr t-if="line.display !== false" t-attf-class="mv_line #{line.already_paid ? ' already_reconciled' : ''} #{line.__invalid ? 'invalid' : ''} #{line.is_tax ? 'is_tax' : ''}" t-att-data-line-id="line.id" t-att-data-selected="selected">
+                <td class="cell_action"><span class="fa fa-add-remove" role="img" aria-label="Set" title="Set"/></td>
+                <td class="cell_account_code"><t t-esc="line.account_code"/></td>
+                <td class="cell_due_date">
+                    <t t-if="typeof(line.id) != 'number' &amp;&amp; line.amount">
+                        <span class="badge badge-secondary">New</span>
+                    </t>
+                    <t t-else="" t-esc="line.date_maturity === false ? line.date : line.date_maturity"/>
+                </td>
+                <td class="cell_label">
+                    <t t-if="line.partner_id &amp;&amp; line.partner_id !== state.st_line.partner_id">
+                        <t t-if="line.partner_name.length">
+                            <t t-esc="line.partner_name"/>:
+                        </t>
+                    </t>
+                    <t t-if="line.invoice_id">
+                        <t t-esc="line.invoice_id.x_Serie"/>-<t t-esc="line.invoice_id.x_DocNro"/>
+                    </t>
+                    <t t-else="">
+                        <t t-esc="line.label || line.name"/>
+                    </t>
+                    <t t-if="line.ref &amp;&amp; line.ref.length"> : </t>
+                    <t t-esc="line.ref"/>
+                </td>
+                <td class="cell_left">
+                    <t t-if="line.amount &lt; 0">
+                        <t t-call="reconciliation.line.mv_line.triangle"/>
+                        <span t-if="line.amount_currency_str"
+                              t-attf-class="o_multi_currency o_multi_currency_color_#{line.currency_id%8} line_info_button fa fa-money"
+                              t-att-data-content="line.amount_currency_str"/>
+                        <t t-raw="line.partial_reconcile ? line.write_off_amount_str : line.amount_str"/>
+                    </t>
+                </td>
+                <td class="cell_right">
+                    <t t-if="line.amount &gt; 0">
+                        <t t-call="reconciliation.line.mv_line.triangle"/>
+                        <span t-if="line.amount_currency_str"
+                              t-attf-class="o_multi_currency o_multi_currency_color_#{line.currency_id%8} line_info_button fa fa-money"
+                              t-att-data-content="line.amount_currency_str"/>
+                        <t t-raw="line.partial_reconcile ? line.write_off_amount_str : line.amount_str"/>
+                    </t>
+                </td>
+                <td class="cell_info_popover"></td>
+            </tr>
+        </t>
+    </t>
+    <t t-extend="reconciliation.line.mv_line.details">
+        <t t-jquery=".details" t-operation="replace">
+            <table class='details'>
+                <tr t-if="line.account_code"><td>Account</td><td><t t-esc="line.account_code"/> <t t-esc="line.account_name"/></td></tr>
+                <tr><td>Journal</td><td><t t-esc="line.journal_id[1]"/></td></tr>
+                <t t-if="line.invoice_id">
+                    <tr><td>Label</td><td><t t-esc="line.invoice_id.x_Serie"/>-<t t-esc="line.invoice_id.x_DocNro"/></td></tr>
+                </t>
+                <t t-else="">
+                    <tr><td>Label</td><td><t t-esc="line.label"/></td></tr>
+                </t>
+                <tr t-if="line.ref"><td>Ref</td><td><t t-esc="line.ref"/></td></tr>
+                <tr t-if="line.partner_id"><td>Partner</td><td><t t-esc="line.partner_name"/></td></tr>
+                <tr><td>Date</td><td><t t-esc="line.date"/></td></tr>
+                <tr><td>Due Date</td><td><t t-esc="line.date_maturity === false ? line.date : line.date_maturity"/></td></tr>
+                <tr><td>Amount</td><td><t t-raw="line.total_amount_str"/><t t-if="line.total_amount_currency_str"> (<t t-esc="line.total_amount_currency_str"/>)</t></td></tr>
+                <tr t-if="line.is_partially_reconciled"><td>Residual</td><td>
+                    <t t-raw="line.amount_str"/><t t-if="line.amount_currency_str"> (<t t-esc="line.amount_currency_str"/>)</t>
+                </td></tr>
+                <tr class="one_line_info" t-if='line.already_paid'>
+                    <td colspan="2">This payment is registered but not reconciled.</td>
+                </tr>
+            </table>
+        </t>
+    </t>
+
+</templates>

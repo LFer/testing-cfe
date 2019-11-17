@@ -1,0 +1,9 @@
+<odoo>
+  <data>
+    <template id="assets_backend_account_rec" name="assets backend" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+          <script type="text/javascript" src="mvline_custom_label/static/src/js/account_reconciliation.js"></script>
+      </xpath>
+    </template>
+  </data>
+</odoo>
