@@ -13,7 +13,8 @@
     'version': '1.0',
     'depends': ['base', 'account'],
     'qweb': [
-        'static/src/xml/*.xml',
+        'static/src/xml/account_reconciliation.xml',
+        'views/assets.xml',
     ],
     'data': [
         'views/assets.xml',
